@@ -20,7 +20,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'propriedade',
+    'usuario'
 ]
+
+
+AUTH_USER_MODEL = 'usuario.Instituicao'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,10 +64,16 @@ WSGI_APPLICATION = 'Teste128Bits.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Teste128',
+        'USER': 'postgres',
+        'PASSWORD': 'senha',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation
@@ -106,6 +118,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-

@@ -3,6 +3,7 @@
 staticfiles/*
 media/*
 **/.idea/workspace.xml **/.idea/tasks.xml
+.idea
 logs/*
 bin/*
 nohup.out

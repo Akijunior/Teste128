@@ -12,3 +12,6 @@ class Propriedade(models.Model):
         verbose_name = 'Propriedade'
         verbose_name_plural = 'Propriedades'
         ordering = ['nome']
+
+    def __str__(self):
+        return self.nome
