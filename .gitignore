@@ -1,0 +1,13 @@
+*.ini
+*.pyc
+staticfiles/*
+media/*
+**/.idea/workspace.xml **/.idea/tasks.xml
+logs/*
+bin/*
+nohup.out
+celerybeat*
+*.rdb
+__pycache__/*
+.vscode/
+core/migrations/*
