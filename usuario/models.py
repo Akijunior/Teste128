@@ -36,17 +36,18 @@ class Instituicao(AbstractBaseUser, PermissionsMixin):
     razaoSocial = models.CharField(verbose_name="Razão Social", max_length=255,)
     cnpj = models.CharField(verbose_name="CNPJ", max_length=255, unique=True)
     telefone = models.CharField(verbose_name="Telefone", max_length=255,)
-    responsavel = models.CharField(verbose_name="Responsavel", max_length=255,)
-    tipo = models.CharField(verbose_name="Tipo", max_length=20, choices=tipoInstituicao)
+    responsavel = models.CharField(verbose_name="Responsável", max_length=255,)
+    tipo = models.CharField(verbose_name="Tipo de Instituição", max_length=20, choices=tipoInstituicao, default="frigorifico")
     estado = models.CharField(verbose_name="Estado", max_length=255)
     cidade = models.CharField(verbose_name="Cidade", max_length=255)
 
     is_superuser = models.NullBooleanField(default=False)
     is_staff = models.NullBooleanField(default=True, blank=True, null=True)
+    is_active = models.NullBooleanField(default=True, blank=True, null=True)
 
     objects = InstituicaoManager()
     USERNAME_FIELD = 'cnpj'
-    REQUIRED_FIELDS = ['email', ]
+    REQUIRED_FIELDS = ['email', 'razaoSocial', 'telefone', 'responsavel', 'estado', 'cidade']
 
     class Meta:
         verbose_name = 'Instituição'

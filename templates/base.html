@@ -4,10 +4,11 @@
 
 <html lang="pt-br">
 <head>
-    <title>Teste - Hello, World!</title>
+    <title>{% block title %}Teste - Hello, World!{% endblock %}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="{% static 'css/footer_align.css' %}" media="screen,projection"/>
+    {% block css %}{% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
@@ -25,8 +26,14 @@
     </div>
 </footer>
 
-<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+<script>
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
 </body>
 </html>
 

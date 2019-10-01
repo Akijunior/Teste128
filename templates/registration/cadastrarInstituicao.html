@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load material_form %}
+
+
+{% block breadcrumb %}
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            <div class="col s12">
+                <div class="container">
+                    <a href="{% url 'login' %}" class="breadcrumb">Efetuar Login</a>
+                    <a href="{% url 'cadastrarInstituicao' %}" class="breadcrumb">Cadastrar Instituição</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <h4 class="left-align teal-text">Cadastrar Nova Instituição</h4>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            {% form form=form %}{% endform %}
+{#            <label for="id_tipo">Tipo</label>#}
+{#            <select id="id_tipo" name="tipo">#}
+{#                <option value="">---------</option>#}
+{#                <option value="frigorifico">Frigorífico</option>#}
+{#                <option value="associacao">Associação</option>#}
+{#                <option value="cooperativa">Cooperativa</option>#}
+{#                <option value="instituicaoPublica">Instituição Pública</option>#}
+{#            </select>#}
+            <div class="row center">
+                <button type="submit"
+                        class="btn-large waves-effect waves-light teal lighten-2 col s12">
+                    <i class="material-icons left">arrow_forward</i> Cadastrar
+                </button>
+            </div>
+        </fieldset>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load material_form %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block css %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}" media="screen,projection"/>
+{% endblock %}
+
+{% block content %}
+    <h3>Fazer login</h3>
+    <div class="left-align">
+        <form method="post">
+            {% csrf_token %}
+
+            {% form form=form %}{% endform %}
+            <button class="btn btn-large waves-effect waves-light col s12" type="submit" name="action">Login
+                <i class="large material-icons left">account_circle</i>
+            </button>
+            <div class="row">
+                <a href="{% url 'cadastrarInstituicao' %}" class="col s12">Cadastrar nova instituição</a>
+                <a href="{% url 'password_reset' %}" class="col s12">Esqueci minha senha</a>
+            </div>
+            <div class="row">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
