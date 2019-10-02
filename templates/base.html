@@ -8,13 +8,35 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="{% static 'css/footer_align.css' %}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/messages.css' %}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/close.css' %}" media="screen,projection"/>
     {% block css %}{% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
 {% block breadcrumb %}{% endblock %}
+
 <div class="container">
+
+    {% if messages %}
+        {% for message in messages %}
+
+            <div id="card-alert" class="card light-{% if message.tags == 'success' %}green{% else %}red {% endif %}">
+                <div class="card-content white-text">
+                    <p class="white-text">
+                        {{ message }}
+                    </p>
+                    <div class="col s12 m2">
+                        <i class="material-icons icon_style" id="alert_close" aria-hidden="true">
+                            close
+                        </i>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     {% block content %}{% endblock %}
 </div>
 
@@ -30,9 +52,14 @@
 <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 
 <script>
-    $(document).ready(function(){
-    $('select').formSelect();
-  });
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+
+    $('#alert_close').click(function () {
+        $("#card-alert").fadeOut("slow", function () {
+        });
+    });
 </script>
 </body>
 </html>
