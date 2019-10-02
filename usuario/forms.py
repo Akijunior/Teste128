@@ -24,3 +24,8 @@ class InstituicaoSignUpForm(UserCreationForm):
         instituicao.save()
 
         return instituicao
+
+
+class SolicitarNovaSenhaForm(forms.Form):
+
+    email = forms.EmailField()

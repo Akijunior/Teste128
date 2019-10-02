@@ -22,7 +22,7 @@
     {% if messages %}
         {% for message in messages %}
 
-            <div id="card-alert" class="card light-{% if message.tags == 'success' %}green{% else %}red {% endif %}">
+            <div id="card-alert" class="card {% if message.tags == 'success' %}light-green{% else %}red{% endif %}">
                 <div class="card-content white-text">
                     <p class="white-text">
                         {{ message }}
