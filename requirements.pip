@@ -1,7 +1,12 @@
+certifi==2019.9.11
+chardet==3.0.4
 Django==2.2.5
 django-material==1.5.8
 djangorestframework==3.10.3
+idna==2.8
 psycopg2-binary==2.8.3
 python-decouple==3.1
 pytz==2019.2
+requests==2.22.0
 sqlparse==0.3.0
+urllib3==1.25.6

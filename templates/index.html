@@ -1,7 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Hello, World!</h1>
+
+    <h3>Hello, {{ usuario.responsavel }}!</h3>
+
+    <table class="striped">
+        <thead>
+        <tr>
+            {% for chave in lista %}
+                <th>{{ chave }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.nome }}</td>
+                <td>{{ usuario.estado }}</td>
+                <td>{{ usuario.cnpj }}</td>
+                <td>{{ usuario.inscricao_estadual }}</td>
+                <td>{{ usuario.cidade }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.telefone }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <a href="{% url 'logout' %}">
         <h4>Sair</h4>
     </a>
