@@ -74,7 +74,9 @@ def post_instituicao_save_reply(instance, **kwargs):
     for i in dicio_user:
         if instance.cidade == i['cidade'] and instance.estado == i['estado']:
             if not Propriedade.objects.filter(idApi=i["id"]).exists():
-                Propriedade.objects.create(idApi=i['id'], nome=i['nome'], nomeProprietario=i['cnpj'])
+                Propriedade.objects.create(idApi=i['id'], nome=i['nome'],
+                                           nomeProprietario=i['usuarios'][0]["nome"]
+                                           if len(i['usuarios']) != 0 and i['usuarios'][0]["nome"] != ""  else "Sem Nome")
                 print("Passou aqui")
 
 
