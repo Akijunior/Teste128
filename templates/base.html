@@ -15,6 +15,21 @@
 </head>
 
 <body>
+
+<div class="navbar-fixed">
+    <nav class="teal darken-3">
+        <div class="nav-wrapper container">
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="{% if user.is_authenticated %}{% url 'logout' %}{% else %}{% url 'login' %}{% endif %}">
+                        {% if user.is_authenticated %}LOGOUT{% else %}LOGIN{% endif %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
 {% block breadcrumb %}{% endblock %}
 
 <div class="container">

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h3>Hello, {{ usuario.responsavel }}!</h3>
+    <h4>Lista de Propriedades coletadas da API</h4>
 
     <table class="striped">
         <thead>
@@ -28,9 +28,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{% url 'logout' %}">
-        <h4>Sair</h4>
-    </a>
 
 {% endblock %}
