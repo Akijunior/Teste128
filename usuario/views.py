@@ -90,19 +90,5 @@ class InstituicaoSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
 
-        response = requests.get('http://teste.aquabit.com.br/api/v1/propriedades/')
-
-        dicio_json = response.json()
-        dicio_string = json.dumps(dicio_json)
-        dicio_python = json.loads(dicio_string)
-
-        dicio_user = dicio_python["results"]
-
-        # for i in dicio_user:
-        #     if form.cleaned_data['cidade'] == i['cidade'] and form.cleaned_data['estado'] == i['estado']:
-        #         if not Propriedade.objects.filter(idApi=i["id"]).exists():
-        #             Propriedade.objects.create(idApi=i['id'], nome=i['nome'], nomeProprietario=i['usuarios'][0]['nome'],
-        #                                        qtdAtual=)
-
         login(self.request, user)
         return redirect('index')

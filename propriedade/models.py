@@ -3,10 +3,11 @@ from django.db import models
 # Create your models here.
 class Propriedade(models.Model):
 
-    idApi = models.IntegerField("ID da aplicação anterior")
+    idApi = models.IntegerField("ID da aplicação anterior", unique=True)
     nome = models.CharField(verbose_name="Nome", max_length=40)
     nomeProprietario = models.CharField(verbose_name="Nome do Proprietário", max_length=40)
-    qtdAtual = models.DecimalField(verbose_name="Quantidade atual de Kg na Propriedade", max_digits=8, decimal_places=2)
+    qtdAtual = models.DecimalField(verbose_name="Quantidade atual de Kg na Propriedade", max_digits=8, decimal_places=2,
+                                   default=0.0)
 
     class Meta:
         verbose_name = 'Propriedade'
@@ -15,3 +16,5 @@ class Propriedade(models.Model):
 
     def __str__(self):
         return self.nome
+
+
